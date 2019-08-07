@@ -1,0 +1,18 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+# More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
+
+Resources:
+  IntegrityCheckFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: PackageIntegrityCheck-local-sam
+      CodeUri: checkintegrity/
+      Handler: checkintegrity.lambda_handler
+      Runtime: python3.6
+      MemorySize: 256
+      Timeout: 20
+      Policies: 
+      - AWSLambdaExecute # Managed Policy
+
+
